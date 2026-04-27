@@ -1,0 +1,41 @@
+:root {
+  color: #f9fafb;
+  background: #101418;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+  line-height: 1.4;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #101418;
+}
+
+#app {
+  width: min(100%, 430px);
+  margin: 0 auto;
+  min-height: 100svh;
+  background: #101418;
+}
+
+.app-shell {
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.content {
+  overflow-y: auto;
+}
+
+h2 {
+  margin: 0 0 0.6rem;
+}

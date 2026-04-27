@@ -1,0 +1,116 @@
+import { reactive } from 'vue'
+
+export const gameStore = reactive({
+  ui: {
+    activeTab: 'main',
+    settingsOpen: false,
+    mainEraIndex: 0,
+  },
+  progress: {
+    currentEraIndex: 0,
+    activeResearch: null,
+  },
+  population: {
+    current: 10,
+  },
+  resources: {
+    inspiration: 0,
+    prestige: 0,
+  },
+  modifiers: {
+    researchMultiplier: 1,
+  },
+  stats: {
+    food: 0,
+    industry: 0,
+    culture: 0,
+    military: 0,
+    infrastructure: 0,
+    army: 0,
+    influence: 0,
+    unrest: 0,
+    happiness: 0,
+    land: 1,
+  },
+  eras: [
+    {
+      id: 'stone-age',
+      name: 'Stone Age',
+      icon: '🪨',
+      technologies: [
+        {
+          id: 'fire',
+          name: 'Fire',
+          color: 'red',
+          level: 0,
+          progress: 0,
+          researchRequired: 100,
+          effectText: '+2 Food',
+          effects: [{ stat: 'food', amount: 2 }],
+        },
+        {
+          id: 'tools',
+          name: 'Tools',
+          color: 'yellow',
+          level: 0,
+          progress: 0,
+          researchRequired: 100,
+          effectText: '+2 Industry',
+          effects: [{ stat: 'industry', amount: 2 }],
+        },
+        {
+          id: 'singing',
+          name: 'Singing',
+          color: 'blue',
+          level: 0,
+          progress: 0,
+          researchRequired: 100,
+          effectText: '+2 Culture',
+          effects: [{ stat: 'culture', amount: 2 }],
+        },
+      ],
+    },
+    {
+      id: 'bronze-age',
+      name: 'Bronze Age',
+      icon: '🥉',
+      technologies: [
+        {
+          id: 'metallurgy',
+          name: 'Metallurgy',
+          color: 'red',
+          level: 0,
+          progress: 0,
+          researchRequired: 10000,
+          effectText: '+3 Military',
+          effects: [{ stat: 'military', amount: 3 }],
+        },
+        {
+          id: 'farming',
+          name: 'Farming',
+          color: 'yellow',
+          level: 0,
+          progress: 0,
+          researchRequired: 10000,
+          effectText: '+3 Food',
+          effects: [{ stat: 'food', amount: 3 }],
+        },
+        {
+          id: 'myth',
+          name: 'Myth',
+          color: 'blue',
+          level: 0,
+          progress: 0,
+          researchRequired: 10000,
+          effectText: '+3 Culture',
+          effects: [{ stat: 'culture', amount: 3 }],
+        },
+      ],
+    },
+  ],
+  upgrades: [
+    { id: 'cooperation', name: 'Cooperation', description: 'Gain +1 inspiration on Singing levels.', bought: false },
+    { id: 'hierarchy', name: 'Hierarchy', description: 'Fire gets +5% red research bonus.', bought: false },
+    { id: 'cultivation', name: 'Cultivation', description: 'Fire grants +2 extra food.', bought: false },
+  ],
+})

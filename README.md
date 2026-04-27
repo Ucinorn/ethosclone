@@ -61,7 +61,7 @@ An incremental game where you progress through the ages, building up technologie
 * All technologiues have a base amount of research it takes to gain a level: 100. This means with no bonuses, it will take 10 seconds to research at level 1
 * To progress to the next age, you must research 10 total levels in any given technology in the current era
 * Each age, the base amount of research required is timesed by 100: 
-  
+ 
 
 ## Stats
 
