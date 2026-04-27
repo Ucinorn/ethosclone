@@ -16,21 +16,51 @@ Goals of this rework:
 Thanks and inspiration from: 
 https://dragonmegaliths.com/games/ethos
 
+## Project Rules and Development guidlines
+
+The following should be followeed at all times and be considered For ALL AI prompts to ensure consistency
+
+* Vue 3 anbd Vite core project
+* Targeted at mobile users primarily, with a constrained view in desktop mode: no responsiveness
+* Set up using Vite Plugins for PWA installation
+* All game game should be housed in a central store, which is a vanilla Vue reactive object
+* Functions, getters and setters should be avoided on the store unless absolutely neccesary: funcitons shoudl live in components unless there is a clear need for them to be acceissible
+* Use of components for U, including all component level state where possible
+* Components should where possible subscribe to the central store, with minimal use of props for passing state from parent to children.
+  * Instead only an ID or reference should be passed so that the component can fetch its own data from the store and react to changes
+* Implement the Mitt Event Bus as a central event store
+* Events should be global and components should subscribe to them where needed
+
+## Visuals and Layout
+
+* The game is targeted at mobile devices first, with a series of pages that can be tabbed through
+* Visuals are minimalist in a dark mode, with an emphasis on readability
+* There is a toolbar at the bottom of the device for switching tab
+* There is a small menu bar at the top of the page with a hamburger settings menu
+* The pages with icons at the bottom of the page are: 
+  * Main page: swipe through ages and select technologies to research. Technologies are listed from the top down and include the name of the tech, its color, its effects and progress both in elapsed time to completion and total time to completion
+  * Upgrades Tab: a list of purchasable upgrades
+  * Stats Tab: a list of all the core and secondary stats in the game with explanations of what they are and their formulas
+  * Prestige Tab: players can choose to prestige, with the amount they will earn shown and estimated time until the next milestone. This is also where information about the currnt challenge is shown. 
+* there is also a page for directly after a prestige, where the player chooses pre-run modifyers and challenges.
+
 ## Core Gameplay
 
 An incremental game where you progress through the ages, building up technologies and the size of your empire
 
-* You start in the Stone ages with three core technologies to research. Each has a name, an effect, and a color based on its effect.
-  * Fire
-  * Tools
-  * Singing
+* You start in the Stone ages with three core technologies to research. Each has a name, an effect, and a color based on its effect. For example:
+  * Stone Age 
+   * Fire
+   * Tools
+   * Singing
 * All eras have three  to four technologies
 * You have a base research speed equal to your population
 * You start with 10 population
 * You can click on one of these technologies to start researching it
 * You can only research one technology at a time: clicking another one will start on that, and sto on the other
-* All technologiues have a base amount of research it takes to gain a level: which increases every level.
+* All technologiues have a base amount of research it takes to gain a level: 100. This means with no bonuses, it will take 10 seconds to research at level 1
 * To progress to the next age, you must research 10 total levels in any given technology in the current era
+* Each age, the base amount of research required is timesed by 100: 
   
 
 ## Stats
